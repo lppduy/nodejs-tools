@@ -1,0 +1,26 @@
+{
+  "name": "nodejs-tools",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lppduy/nodejs-tools.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lppduy/nodejs-tools/issues"
+  },
+  "homepage": "https://github.com/lppduy/nodejs-tools#readme",
+  "dependencies": {
+    "sharp": "^0.32.6"
+  }
+}

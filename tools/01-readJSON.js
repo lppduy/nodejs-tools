@@ -11,8 +11,3 @@ function readJSON(jsonPath) {
 }
 
 module.exports = { readJSON };
-
-// const jsonConverted = JSON.stringify(jsonObj);
-// jsonObj.check = true;
-
-// fs.writeFileSync(jsonPath, jsonConverted);

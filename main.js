@@ -15,5 +15,7 @@
 // const folderTargetPath = './testPNG';
 // createFolderPNG(folderSourcePath, folderTargetPath);
 
-const { resizeImage } = require('./tools/05-resizeImage');
-resizeImage('./test');
+// const { resizeImage } = require('./tools/05-resizeImage');
+// resizeImage('./test');
+const { createIndexFile } = require('./tools/06-createIndexFile');
+createIndexFile('./src');

@@ -2,25 +2,25 @@ const fs = require('fs');
 const path = require('path');
 
 function searchImage(folderPath) {
-  const images = [];
-  const allFiles = fs.readdirSync(folderPath);
-  for (let file of allFiles) {
-    const fileExt = path.extname(file).toLowerCase();
-    if (
-      fileExt === '.jpg' ||
-      fileExt === '.png' ||
-      fileExt === '.jpeg' ||
-      fileExt === '.gif'
-    )
-      images.push(file);
+  let images = [];
+
+  function searchInDirectory(dirPath) {
+    const files = fs.readdirSync(dirPath);
+    files.forEach(file => {
+      const filePath = path.join(dirPath, file);
+      if (fs.statSync(filePath).isDirectory()) {
+        searchInDirectory(filePath);
+      } else {
+        const fileExt = path.extname(file).toLowerCase();
+        if (['.jpg', '.jpeg', '.png', '.gif'].includes(fileExt)) {
+          images.push(filePath);
+        }
+      }
+    });
   }
+
+  searchInDirectory(folderPath);
   return images;
-}
-function searchImage2(folderPath) {
-  return files.filter(file => {
-    const fileExtension = path.extname(file).toLowerCase();
-    return ['.jpg', '.jpeg', '.png', '.gif'].includes(fileExtension);
-  });
 }
 
 module.exports = { searchImage };

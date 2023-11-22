@@ -14,8 +14,13 @@ function searchImage(folderPath) {
     )
       images.push(file);
   }
-  console.log('All images: ', images);
   return images;
+}
+function searchImage2(folderPath) {
+  return files.filter(file => {
+    const fileExtension = path.extname(file).toLowerCase();
+    return ['.jpg', '.jpeg', '.png', '.gif'].includes(fileExtension);
+  });
 }
 
 module.exports = { searchImage };

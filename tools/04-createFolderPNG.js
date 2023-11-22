@@ -7,9 +7,9 @@ function createFolderPNG(folderSourcePath, folderTargetPath) {
     const parentDirectory = path.dirname(folderSourcePath);
     folderTargetPath = path.join(parentDirectory, `${sourceDirectoryName}_PNG`);
   }
-  
+
   const pngImages = searchPNG(folderSourcePath);
-  
+
   if (!fs.existsSync(folderTargetPath)) {
     fs.mkdirSync(folderTargetPath, { recursive: true });
     console.log('New folder created');
@@ -18,12 +18,12 @@ function createFolderPNG(folderSourcePath, folderTargetPath) {
   }
 
   pngImages.forEach(image => {
-    const sourceImagePath = image; 
-    const relativeImagePath = path.relative(folderSourcePath, image); 
-    const targetImagePath = path.join(folderTargetPath, relativeImagePath); /
+    const sourceImagePath = image;
+    const relativeImagePath = path.relative(folderSourcePath, image);
+    const targetImagePath = path.join(folderTargetPath, relativeImagePath);
 
     if (!fs.existsSync(path.dirname(targetImagePath))) {
-      fs.mkdirSync(path.dirname(targetImagePath), { recursive: true }); 
+      fs.mkdirSync(path.dirname(targetImagePath), { recursive: true });
     }
 
     copyFile(sourceImagePath, targetImagePath);
